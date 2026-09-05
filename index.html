@@ -1,4 +1,4 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -37,7 +37,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            padding: 12px 5%;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -50,19 +50,11 @@
             text-decoration: none;
         }
 
-        .nav-logo {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--nayan-red);
-        }
-
         .nav-title {
-            font-size: 20px;
-            font-weight: 800;
+            font-size: 22px;
+            font-weight: 900;
             color: var(--nayan-red);
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         .nav-links {
@@ -90,21 +82,39 @@
             border-radius: 6px;
         }
 
-        /* Hero Banner matching NAYAN red branding */
+        /* Hero Banner */
         .hero {
             background-color: var(--nayan-red);
             color: var(--nayan-white);
             text-align: center;
-            padding: 50px 20px;
+            padding: 70px 20px;
         }
 
-        .hero-logo-img {
-            max-width: 320px;
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            margin-bottom: 20px;
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+        }
+
+        .hero .acronym {
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.95;
+            margin-bottom: 15px;
+        }
+
+        .hero .slogan {
+            font-size: 18px;
+            font-weight: 700;
+            background: rgba(255,255,255,0.15);
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.3);
+            letter-spacing: 1px;
         }
 
         /* Sections */
@@ -173,19 +183,6 @@
             padding: 30px 20px;
         }
 
-        .leader-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--nayan-gray);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px auto;
-            font-size: 32px;
-            border: 2px solid var(--nayan-red);
-        }
-
         /* Form Styling */
         .form-container {
             background: var(--nayan-white);
@@ -234,23 +231,6 @@
             min-height: 80px;
         }
 
-        .photo-wrapper {
-            border: 2px dashed var(--border-color);
-            padding: 20px;
-            text-align: center;
-            border-radius: 6px;
-            background: #fafafa;
-            cursor: pointer;
-        }
-
-        .photo-preview {
-            max-width: 100px;
-            max-height: 100px;
-            margin-top: 10px;
-            display: none;
-            border-radius: 6px;
-        }
-
         .btn-submit {
             width: 100%;
             background: var(--nayan-red);
@@ -268,12 +248,6 @@
 
         .btn-submit:hover {
             background: var(--nayan-dark-red);
-        }
-
-        #result-status {
-            text-align: center;
-            margin-top: 15px;
-            font-weight: 700;
         }
 
         /* Footer */
@@ -301,7 +275,6 @@
 
     <nav class="navbar">
         <a href="#" class="nav-brand">
-            <img src="4228.png" alt="NAYAN Logo" class="nav-logo">
             <span class="nav-title">NAYAN</span>
         </a>
         <ul class="nav-links">
@@ -312,7 +285,9 @@
     </nav>
 
     <header class="hero">
-        <img src="4228.png" alt="National Youth Action Network Official Logo" class="hero-logo-img">
+        <h1>NAYAN</h1>
+        <div class="acronym">National Youth Action Network</div>
+        <div class="slogan">YOUTH. VOICE. ACTION.</div>
     </header>
 
     <section id="about" class="section">
@@ -337,13 +312,11 @@
         <h2 class="section-title">Founders &amp; Officials</h2>
         <div class="grid-2">
             <div class="card leader-card">
-                <div class="leader-icon">👤</div>
                 <h3>Riyaz Chalise</h3>
                 <p style="font-weight: 700; color: var(--nayan-red);">Founder</p>
                 <p style="font-size: 13px; margin-top: 8px;">Driving digital innovation, network strategy, and youth mobilization across Nepal.</p>
             </div>
             <div class="card leader-card">
-                <div class="leader-icon">👤</div>
                 <h3>Sushant Adhikari</h3>
                 <p style="font-weight: 700; color: var(--nayan-red);">Founder</p>
                 <p style="font-size: 13px; margin-top: 8px;">Leading organizational growth, grassroots campaigns, and youth empowerment.</p>
@@ -358,8 +331,12 @@
                 <em>Note: Official club roles are assigned by NAYAN executive leadership based on your questionnaire responses.</em>
             </p>
 
-            <form id="membershipForm">
+            <form id="membershipForm" action="https://formsubmit.co/77f5558c802619ed4f819814ec63a0a9" method="POST">
                 
+                <input type="hidden" name="_subject" value="New NAYAN Membership Application">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+
                 <div class="form-section-head">1. Personal Information</div>
 
                 <div class="form-group">
@@ -369,7 +346,7 @@
 
                 <div class="form-group">
                     <label for="email">Email Address *</label>
-                    <input type="email" name="Email" id="email" required placeholder="example@domain.com">
+                    <input type="email" name="email" id="email" required placeholder="example@domain.com">
                 </div>
 
                 <div class="form-group">
@@ -385,15 +362,6 @@
                 <div class="form-group">
                     <label for="dob">Date of Birth *</label>
                     <input type="date" name="Date of Birth" id="dob" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Passport Size Photo *</label>
-                    <div class="photo-wrapper" onclick="document.getElementById('photoInput').click()">
-                        <p id="uploadText">Click to select photo</p>
-                        <input type="file" id="photoInput" accept="image/*" required style="display:none;" onchange="previewImage(event)">
-                        <center><img id="photoPreview" class="photo-preview" alt="Preview"></center>
-                    </div>
                 </div>
 
                 <div class="form-section-head">2. Youth Action Questionnaire</div>
@@ -429,8 +397,6 @@
                 </div>
 
                 <button type="submit" class="btn-submit">SUBMIT APPLICATION</button>
-
-                <div id="result-status"></div>
             </form>
         </div>
     </section>
@@ -442,58 +408,5 @@
         <p style="margin-top: 15px; font-size: 12px; opacity: 0.6;">&copy; NAYAN. All rights reserved.</p>
     </footer>
 
-    <script>
-        function previewImage(event) {
-            const reader = new FileReader();
-            const imageField = document.getElementById('photoPreview');
-            const uploadText = document.getElementById('uploadText');
-
-            reader.onload = function() {
-                if(reader.readyState === 2) {
-                    imageField.src = reader.result;
-                    imageField.style.display = 'block';
-                    uploadText.textContent = "Change Photo";
-                }
-            }
-            if(event.target.files[0]) {
-                reader.readAsDataURL(event.target.files[0]);
-            }
-        }
-
-        // Direct Email Submission via FormSubmit AJAX
-        const form = document.getElementById('membershipForm');
-        const statusDiv = document.getElementById('result-status');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            statusDiv.style.color = "#222";
-            statusDiv.innerHTML = "Sending application...";
-
-            const formData = new FormData(form);
-            formData.append("_subject", "New NAYAN Membership Application");
-
-            fetch('https://formsubmit.co/ajax/itsmeriyaz697@gmail.com', {
-                method: 'POST',
-                body: formData
-            })
-            .then(async (response) => {
-                let json = await response.json();
-                if (response.ok) {
-                    statusDiv.style.color = "green";
-                    statusDiv.innerHTML = "Application successfully submitted to NAYAN team!";
-                    form.reset();
-                    document.getElementById('photoPreview').style.display = 'none';
-                    document.getElementById('uploadText').textContent = "Click to select photo";
-                } else {
-                    statusDiv.style.color = "red";
-                    statusDiv.innerHTML = "Submission failed. Please try again.";
-                }
-            })
-            .catch(error => {
-                statusDiv.style.color = "red";
-                statusDiv.innerHTML = "Error sending application. Please check your internet connection.";
-            });
-        });
-    </script>
 </body>
 </html>
