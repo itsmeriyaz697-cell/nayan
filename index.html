@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAYAN - Membership Application Form</title>
+
+    <!-- Browser Tab Favicon Icon -->
+    <link rel="icon" type="image/png" href="4228.png">
+
+    <style>
+        :root {
+            --brand-red: #C8102E;
+            --brand-dark-red: #A00C23;
+            --bg-color: #900A1F;
+            --text-dark: #222222;
+            --text-light: #ffffff;
+            --border-color: #dddddd;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle, #b80d27 0%, #700617 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: #ffffff;
+            width: 100%;
+            max-width: 650px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+        }
+
+        .header {
+            background: var(--brand-red);
+            color: var(--text-light);
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+        }
+
+        .logo-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            margin-bottom: 12px;
+        }
+
+        .header h1 {
+            font-size: 26px;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+
+        .header p.tagline {
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 4px;
+            opacity: 0.9;
+        }
+
+        .meta-info {
+            background-color: rgba(0, 0, 0, 0.15);
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 6px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .form-body {
+            padding: 30px;
+        }
+
+        .form-section-title {
+            color: var(--brand-red);
+            font-size: 16px;
+            border-bottom: 2px solid var(--brand-red);
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        label .required {
+            color: var(--brand-red);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--brand-red);
+            box-shadow: 0 0 5px rgba(200, 16, 46, 0.2);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .photo-upload-wrapper {
+            border: 2px dashed var(--border-color);
+            padding: 20px;
+            text-align: center;
+            border-radius: 6px;
+            background: #fafafa;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .photo-upload-wrapper:hover {
+            background: #f0f0f0;
+        }
+
+        .photo-preview {
+            max-width: 120px;
+            max-height: 120px;
+            border-radius: 6px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .checkbox-group input {
+            margin-top: 3px;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .btn-submit-email {
+            background: var(--brand-red);
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit-email:hover {
+            background: var(--brand-dark-red);
+        }
+
+        .btn-submit-wa {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit-wa:hover {
+            background: #1ebd59;
+        }
+
+        #result-msg {
+            margin-top: 15px;
+            font-size: 14px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <img src="4228.png" alt="NAYAN Logo" class="logo-img">
+        <h1>NAYAN</h1>
+        <p class="tagline">National Youth Action Network</p>
+        <p style="font-size: 12px; opacity: 0.8; margin-top: 2px;">Youth. Voice. Action.</p>
+        
+        <div class="meta-info">
+            <strong>Founders:</strong> Riyaz Chalise &amp; Sushant Adhikari<br>
+            <strong>Contact:</strong> +977 9713568248
+        </div>
+    </div>
+
+    <!-- Main Form configured with Web3Forms Endpoint -->
+    <form id="nayanForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" class="form-body">
+        
+        <!-- Replace value with your key from web3forms.com -->
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE">
+        <input type="hidden" name="subject" value="New NAYAN Membership Application">
+        <input type="hidden" name="from_name" value="NAYAN Application Portal">
+
+        <div class="form-section-title">1. Personal Information</div>
+
+        <div class="form-group">
+            <label for="fullName">Full Name <span class="required">*</span></label>
+            <input type="text" name="Full Name" id="fullName" required placeholder="Enter your full name">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" name="Email" id="email" required placeholder="example@domain.com">
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Contact Number <span class="required">*</span></label>
+            <input type="tel" name="Phone Number" id="phone" required placeholder="98XXXXXXXX">
+        </div>
+
+        <div class="form-group">
+            <label for="address">Current Address <span class="required">*</span></label>
+            <input type="text" name="Address" id="address" required placeholder="City, District, Province">
+        </div>
+
+        <div class="form-group">
+            <label for="dob">Date of Birth <span class="required">*</span></label>
+            <input type="date" name="Date of Birth" id="dob" required>
+        </div>
+
+        <div class="form-group">
+            <label>Upload Passport Size Photo <span class="required">*</span></label>
+            <div class="photo-upload-wrapper" onclick="document.getElementById('photoInput').click()">
+                <p id="uploadText">Click here to select your photo</p>
+                <input type="file" name="Applicant Photo" id="photoInput" accept="image/*" required style="display:none;" onchange="previewImage(event)">
+                <center><img id="photoPreview" class="photo-preview" alt="Preview"></center>
+            </div>
+        </div>
+
+        <div class="form-section-title">2. Youth & Action Questionnaire</div>
+
+        <div class="form-group">
+            <label for="motivation">Why do you want to join NAYAN? <span class="required">*</span></label>
+            <textarea name="Motivation" id="motivation" required placeholder="Describe your motivation to join the network..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="skills">What skills, talents, or abilities can you contribute? <span class="required">*</span></label>
+            <textarea name="Skills" id="skills" required placeholder="e.g., Content Creation, Event Management, Public Speaking, Coding..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="experience">Have you participated in any youth programs or volunteering before? <span class="required">*</span></label>
+            <textarea name="Experience" id="experience" required placeholder="Share brief details of your past experience..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="issue">What key issue facing youth today do you feel most passionate about addressing? <span class="required">*</span></label>
+            <textarea name="Key Issue" id="issue" required placeholder="e.g., Education, Mental Health, Climate Action..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="availability">How many hours per week can you dedicate to NAYAN? <span class="required">*</span></label>
+            <select name="Weekly Availability" id="availability" required>
+                <option value="">-- Select Availability --</option>
+                <option value="1-3 hours">1 - 3 Hours / week</option>
+                <option value="4-7 hours">4 - 7 Hours / week</option>
+                <option value="8+ hours">8+ Hours / week</option>
+            </select>
+        </div>
+
+        <div class="form-group checkbox-group">
+            <input type="checkbox" id="declaration" required>
+            <label for="declaration" style="font-weight: normal; font-size: 13px;">
+                I declare that the information provided is accurate and I agree to participate actively in NAYAN activities. <span class="required">*</span>
+            </label>
+        </div>
+
+        <div class="btn-container">
+            <button type="submit" class="btn-submit-email">SUBMIT VIA EMAIL (AUTO-SEND)</button>
+            <button type="button" onclick="sendToWhatsApp()" class="btn-submit-wa">SUBMIT VIA WHATSAPP</button>
+        </div>
+
+        <div id="result-msg"></div>
+    </form>
+</div>
+
+<script>
+    function previewImage(event) {
+        const reader = new FileReader();
+        const imageField = document.getElementById('photoPreview');
+        const uploadText = document.getElementById('uploadText');
+
+        reader.onload = function() {
+            if(reader.readyState === 2) {
+                imageField.src = reader.result;
+                imageField.style.display = 'block';
+                uploadText.textContent = "Change Photo";
+            }
+        }
+        
+        if(event.target.files[0]) {
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    }
+
+    // WhatsApp Submit Handler
+    function sendToWhatsApp() {
+        const form = document.getElementById('nayanForm');
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+        const whatsappNumber = "9779840228049";
+
+        const name = document.getElementById('fullName').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const address = document.getElementById('address').value;
+        const dob = document.getElementById('dob').value;
+        const motivation = document.getElementById('motivation').value;
+        const skills = document.getElementById('skills').value;
+        const experience = document.getElementById('experience').value;
+        const issue = document.getElementById('issue').value;
+        const availability = document.getElementById('availability').value;
+
+        let message = `*NEW NAYAN MEMBERSHIP APPLICATION*\n\n`;
+        message += `*1. PERSONAL DETAILS*\n`;
+        message += `• *Name:* ${name}\n`;
+        message += `• *Email:* ${email}\n`;
+        message += `• *Phone:* ${phone}\n`;
+        message += `• *Address:* ${address}\n`;
+        message += `• *DOB:* ${dob}\n\n`;
+        message += `*2. QUESTIONNAIRE*\n`;
+        message += `• *Motivation:* ${motivation}\n`;
+        message += `• *Skills:* ${skills}\n`;
+        message += `• *Experience:* ${experience}\n`;
+        message += `• *Key Issue:* ${issue}\n`;
+        message += `• *Availability:* ${availability}\n\n`;
+        message += `_(Note: I am sending my photo attached in this chat.)_`;
+
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappURL, '_blank');
+    }
+
+    // Email AJAX Form Submit
+    const form = document.getElementById('nayanForm');
+    const resultMsg = document.getElementById('result-msg');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        resultMsg.style.color = "#222";
+        resultMsg.innerHTML = "Sending application...";
+
+        const formData = new FormData(form);
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+        })
+        .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+                resultMsg.style.color = "green";
+                resultMsg.innerHTML = "Application submitted successfully! Check your email inbox.";
+                form.reset();
+                document.getElementById('photoPreview').style.display = 'none';
+                document.getElementById('uploadText').textContent = "Click here to select your photo";
+            } else {
+                resultMsg.style.color = "red";
+                resultMsg.innerHTML = json.message;
+            }
+        })
+        .catch(error => {
+            resultMsg.style.color = "red";
+            resultMsg.innerHTML = "Something went wrong! Please try again or submit via WhatsApp.";
+        });
+    });
+</script>
+
+</body>
+</html>
